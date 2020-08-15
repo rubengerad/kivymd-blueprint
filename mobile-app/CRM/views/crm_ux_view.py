@@ -1,0 +1,60 @@
+main_layout = '''
+Screen:
+    name:'dashboard'
+    NavigationLayout:
+        # BoxLayout:  # What is possible in kivy is missing in kivymd
+        #     orientation:'vertical'
+        # 
+        #     MDToolbar:
+        #         title: 'Mobile CRM'
+        #         left_action_items: [['menu', lambda x:app.display_navigation()]]
+        #         pos_hint: {'top':1}
+        #         elevation:10
+
+        ScreenManager:
+            id: screenmanager
+            DashboardScreen:
+            ListLeadsScreen:
+            ListAccountsScreen:
+            
+        # MDBottomAppBar:
+        #     MDToolbar:
+        #         mode:'end'
+        #         icon:'plus-thick'
+        #         elevation:20    
+        #         on_action_button: app.display_navigation()    
+
+        MDNavigationDrawer:
+            id:navdrawer
+            MDBoxLayout:
+                spacing:'8dp'
+                padding:'8dp'
+                orientation:'vertical'
+                Image:
+                    source:'assets/mcrm.png'
+
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Dashboard'
+                            on_press: 
+                                app.showdashboard()
+                            IconLeftWidget:
+                                icon: 'home'   
+                        OneLineIconListItem:
+                            text: 'Leads'
+                            on_press: 
+                                app.showleads()
+                            IconLeftWidget:
+                                icon: 'account'
+                        OneLineIconListItem:
+                            text: 'Accounts'
+                            on_press: 
+                                app.showaccounts()
+                            IconLeftWidget:
+                                icon: 'book'
+
+
+
+
+'''

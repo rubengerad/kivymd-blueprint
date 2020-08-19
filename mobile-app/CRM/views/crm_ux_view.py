@@ -1,29 +1,22 @@
 main_layout = '''
 Screen:
     name:'dashboard'
+
+    MDToolbar:
+        id: toolbar
+        pos_hint: {"top": 1}
+        elevation: 10
+        title: "MDNavigationDrawer"
+        left_action_items: [["menu", lambda x: app.display_navigation()]]    
+    
     NavigationLayout:
-        # BoxLayout:  # What is possible in kivy is missing in kivymd
-        #     orientation:'vertical'
-        # 
-        #     MDToolbar:
-        #         title: 'Mobile CRM'
-        #         left_action_items: [['menu', lambda x:app.display_navigation()]]
-        #         pos_hint: {'top':1}
-        #         elevation:10
 
         ScreenManager:
             id: screenmanager
             DashboardScreen:
             ListLeadsScreen:
             ListAccountsScreen:
-            
-        # MDBottomAppBar:
-        #     MDToolbar:
-        #         mode:'end'
-        #         icon:'plus-thick'
-        #         elevation:20    
-        #         on_action_button: app.display_navigation()    
-
+        
         MDNavigationDrawer:
             id:navdrawer
             MDBoxLayout:
@@ -53,8 +46,11 @@ Screen:
                                 app.showaccounts()
                             IconLeftWidget:
                                 icon: 'book'
-
-
-
-
+                                        
+    MDBottomAppBar:
+        MDToolbar:
+            mode:'end'
+            icon:'plus-thick'
+            elevation:20    
+            on_action_button: app.display_navigation()    
 '''

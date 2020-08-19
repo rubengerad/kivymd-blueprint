@@ -8,8 +8,8 @@ from controllers.leadcontroller import ListLeadsScreen
 from controllers.accountcontroller import ListAccountsScreen
 
 Window.size = (300, 500)
-
-class PropertyPlanner(MDApp):
+# TESTING DESIGN FIRST APPROACH
+class MCRM(MDApp):
     def build(self):
         self.theme_cls.primary_palette = 'BlueGray'
         self.theme_cls.primary_hue = '700'
@@ -40,4 +40,4 @@ class PropertyPlanner(MDApp):
         self.root.ids.screenmanager.current = 'listaccounts'
         self.close_navigation()
 
-PropertyPlanner().run()
+MCRM().run()
